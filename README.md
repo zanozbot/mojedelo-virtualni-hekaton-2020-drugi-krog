@@ -1,4 +1,4 @@
-# MojedeloAngular
+# Spletna aplikacija za oddajo in pregled vlog za delo - MojeDelo
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
 

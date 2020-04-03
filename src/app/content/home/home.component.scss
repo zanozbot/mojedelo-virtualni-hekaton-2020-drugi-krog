@@ -1,0 +1,22 @@
+.has-background-image {
+  background-color: gray;
+  border-bottom-right-radius: 2rem;
+  border-top-right-radius: 2rem;
+}
+
+section {
+  padding: 5rem;
+}
+
+.content {
+  height: 100%;
+  overflow: auto;
+  justify-content: center;
+  scrollbar-width: thin;
+}
+
+@media only screen and (max-width: 959px) {
+  section {
+    padding: 1.5rem 0;
+  }
+}
