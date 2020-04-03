@@ -13,11 +13,10 @@ $typography: mat-typography-config(
 // Be sure that you only ever include this mixin once!
 @include mat-core($typography);
 
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
-$mojedelo-angular-primary: mat-palette($mat-indigo);
-$mojedelo-angular-accent: mat-palette($mat-pink, A200, A100, A400);
+// Define the palettes for your theme using the Material Design palettes
+@import "./theme.scss";
+$mojedelo-angular-primary: mat-palette($mojedelo-blue);
+$mojedelo-angular-accent: mat-palette($mojedelo-orange);
 
 // The warn palette is optional (defaults to red).
 $mojedelo-angular-warn: mat-palette($mat-red);
