@@ -1,1 +1,56 @@
+<section class="has-height-100" fxLayout="row" fxLayout.lt-md="column">
+
+  <div class="content" fxFlex="1 1 50%" fxFlex.lt-md="1 1 100%">
+
+    <div class="container" fxFlex="1 1 100%" fxFlex.gt-xs="1 1 75%" fxFlex.gt-sm="1 1 100%" fxFlex.gt-md="1 1 100%"
+      fxFlex.gt-lg="1 1 50%" fxLayout="column" fxLayoutGap="2rem">
+      <div class="row">
+        <h1 class="has-text-base has-font-weight-semibold">Obrazec za oddajo vloge</h1>
+        <h3 class="mat-subheading-2 has-text-secondary">Izpolnite spodnja polja in oddajte vlogo, če se želite
+          potegovati
+          za
+          izbrano delovno
+          mesto.</h3>
+      </div>
+
+      <div class="row">
+        <mat-form-field appearance="fill" class="has-width-100">
+          <mat-label>Ime*</mat-label>
+          <input matInput placeholder="Vnesite svoje ime">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="has-width-100">
+          <mat-label>Priimek*</mat-label>
+          <input matInput placeholder="Vnesite svoj priimek">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="has-width-100">
+          <mat-label>Naslov*</mat-label>
+          <input matInput placeholder="Vnesite svoj naslov">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="has-width-100">
+          <mat-label>Opis*</mat-label>
+          <textarea matInput placeholder="Opišite zakaj ste vi najbolj primerni za izbrano delo"></textarea>
+        </mat-form-field>
+
+        <button class="has-width-100" mat-flat-button color="primary">Oddajte vlogo</button>
+      </div>
+
+      <div class="row separator">
+        <span class="has-text-secondary">ALI</span>
+      </div>
+
+      <div class="row">
+        <button class="has-width-100" mat-stroked-button color="primary">Prijavite se kot administrator</button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div fxHide.lt-md class="has-background-image" fxFlex="1 1 50%"></div>
+
+</section>
+
 <router-outlet></router-outlet>

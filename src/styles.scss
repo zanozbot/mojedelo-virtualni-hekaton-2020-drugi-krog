@@ -15,20 +15,22 @@ $typography: mat-typography-config(
 
 // Define the palettes for your theme using the Material Design palettes
 @import "./theme.scss";
-$mojedelo-angular-primary: mat-palette($mojedelo-blue);
-$mojedelo-angular-accent: mat-palette($mojedelo-orange);
+$mojedelo-primary: mat-palette($mojedelo-blue);
+$mojedelo-accent: mat-palette($mojedelo-orange);
 
 // The warn palette is optional (defaults to red).
-$mojedelo-angular-warn: mat-palette($mat-red);
+$mojedelo-warn: mat-palette($mat-red);
 
 // Create the theme object (a Sass map containing all of the palettes).
-$mojedelo-light-theme: mat-light-theme($mojedelo-angular-primary, $mojedelo-angular-accent, $mojedelo-angular-warn);
-$mojedelo-dark-theme: mat-light-theme($mojedelo-angular-primary, $mojedelo-angular-accent, $mojedelo-angular-warn);
+$mojedelo-light-theme: mat-light-theme($mojedelo-primary, $mojedelo-accent, $mojedelo-warn);
+$mojedelo-dark-theme: mat-light-theme($mojedelo-primary, $mojedelo-accent, $mojedelo-warn);
+$mojedelo-light-foreground: mojedelo-mat-light-theme-foreground(mat-color($mojedelo-primary, 500));
+$mojedelo-light-theme-extended: map-merge($mojedelo-light-theme, (foreground: $mojedelo-light-foreground));
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include angular-material-theme($mojedelo-light-theme);
+@include angular-material-theme($mojedelo-light-theme-extended);
 
 .dark-theme {
   @include angular-material-theme($mojedelo-dark-theme);
@@ -36,3 +38,48 @@ $mojedelo-dark-theme: mat-light-theme($mojedelo-angular-primary, $mojedelo-angul
 
 html, body { height: 100%; }
 body { margin: 0; font-family: 'Poppins', sans-serif; }
+
+.has-text-base {
+  color: mat-color($mojedelo-light-foreground, text);
+}
+
+.has-text-secondary {
+  color: mat-color($mojedelo-light-foreground, secondary-text);
+}
+
+.has-font-weight-light {
+  font-weight: 400 !important;
+}
+
+.has-font-weight-medium {
+  font-weight: 500 !important;
+}
+
+.has-font-weight-semibold {
+  font-weight: 600 !important;
+}
+
+.has-font-weight-bold {
+  font-weight: 700 !important;
+}
+
+.has-width-100 {
+  width: 100%;
+}
+
+.has-height-100 {
+  height: 100%;
+}
+
+.separator {
+  border-bottom: 2px solid mat-color($mojedelo-light-foreground, divider);
+  position: relative;
+
+  span {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0 1rem;
+    background: white;
+  }
+}
