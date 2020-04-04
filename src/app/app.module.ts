@@ -18,6 +18,8 @@ import { MatPaginatorModule, MatPaginatorIntl } from '@angular/material/paginato
 import { PaginatorProvider } from './providers/paginator.provider';
 import { RatingsComponent } from './content/ratings/ratings.component';
 import { MatSortModule } from '@angular/material/sort';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { MatSortModule } from '@angular/material/sort';
     MatIconModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    ReactiveFormsModule,
+    MatSnackBarModule
   ],
   providers: [
     { provide: MatPaginatorIntl, useValue: PaginatorProvider() }

@@ -1,5 +1,5 @@
 <div class="container" fxFlex="1 1 100%" fxFlex.gt-xs="1 1 75%" fxFlex.gt-sm="1 1 100%" fxFlex.gt-md="1 1 85%"
-  fxFlex.gt-lg="1 1 60%" fxLayout="column" fxLayoutGap="2rem">
+  fxFlex.gt-lg="1 1 60%" fxLayout="column" fxLayoutGap="2rem" [formGroup]="submissionFormGroup">
 
   <div class="row">
     <h1 class="has-text-base has-font-weight-semibold">Obrazec za oddajo vloge</h1>
@@ -7,28 +7,33 @@
       potegovati za izbrano delovno mesto.</h3>
   </div>
 
-  <div class="row">
+  <div class="row" fxLayout="column" fxLayoutGap="0.75rem">
     <mat-form-field appearance="fill" color="accent" class="has-width-100">
       <mat-label>Ime*</mat-label>
-      <input matInput placeholder="Vnesite svoje ime">
+      <input formControlName="firstName" matInput placeholder="Vnesite svoje ime">
+      <mat-error *ngIf="controls['firstName'].hasError('required')">Zahtevano polje</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill" color="accent" class="has-width-100">
       <mat-label>Priimek*</mat-label>
-      <input matInput placeholder="Vnesite svoj priimek">
+      <input formControlName="lastName" matInput placeholder="Vnesite svoj priimek">
+      <mat-error *ngIf="controls['lastName'].hasError('required')">Zahtevano polje</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill" color="accent" class="has-width-100">
       <mat-label>Naslov*</mat-label>
-      <input matInput placeholder="Vnesite svoj naslov">
+      <input formControlName="address" matInput placeholder="Vnesite svoj naslov">
+      <mat-error *ngIf="controls['address'].hasError('required')">Zahtevano polje</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill" color="accent" class="has-width-100">
       <mat-label>Opis*</mat-label>
-      <textarea matInput placeholder="Opišite zakaj ste vi najbolj primerni za izbrano delo"></textarea>
+      <textarea formControlName="description" matInput
+        placeholder="Opišite zakaj ste vi najbolj primerni za izbrano delo"></textarea>
+      <mat-error *ngIf="controls['description'].hasError('required')">Zahtevano polje</mat-error>
     </mat-form-field>
 
-    <button class="has-width-100" mat-flat-button color="primary">Oddajte vlogo</button>
+    <button class="has-width-100" mat-flat-button color="primary" (click)="publishSubmission()">Oddajte vlogo</button>
   </div>
 
   <div class="row separator">
