@@ -40,7 +40,7 @@ export class AdminComponent implements OnInit {
     const session = LocalStorageUtil.getSession();
 
     if (!session.valid) {
-      this.snackbar.open('Trenutna seja vam je potekla. Prosimo, da se ponovno prijavite', null, { duration: 5000, panelClass: 'has-border-left-accent' });
+      this.snackbar.open('Trenutna seja vam je potekla. Prosimo, da se ponovno prijavite.', null, { duration: 5000, panelClass: 'has-border-left-accent' });
       this.router.navigate(['/prijava']);
     }
 
