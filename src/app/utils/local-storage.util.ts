@@ -24,7 +24,7 @@ export default class LocalStorageUtil {
       return false;
     }
 
-    return moment.utc(isAdmin).isAfter(moment.utc().subtract(24, 'hours'));
+    return this.isSessionValid(isAdmin);
   }
 
   public static setIsAdmin() {
@@ -33,6 +33,18 @@ export default class LocalStorageUtil {
 
   public static getCurrentISODate(): string {
     return moment.utc().toISOString();
+  }
+
+  public static isSessionValid(isAdmin: string) {
+    return moment.utc(isAdmin).isAfter(moment.utc().subtract(24, 'hours'));
+  }
+
+  public static getSession(): any {
+    const isAdmin = localStorage.getItem(`${this.LOCAL_STORAGE_KEY}_jeAdmin`);
+
+    moment.locale('sl');
+
+    return { valid: this.isSessionValid(isAdmin), time: moment.utc().to(moment.utc(isAdmin).add(24, 'hours')) };
   }
 
 }

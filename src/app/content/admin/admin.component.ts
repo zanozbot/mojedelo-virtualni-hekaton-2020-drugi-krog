@@ -3,6 +3,8 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 import { Submission } from 'src/app/models/submission.model';
 import { MatPaginator } from '@angular/material/paginator';
 import LocalStorageUtil from 'src/app/utils/local-storage.util';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -24,7 +26,7 @@ export class AdminComponent implements OnInit {
 
   public expandedSubmission: Submission | null;
 
-  constructor() { }
+  constructor(private snackbar: MatSnackBar, private router: Router) { }
 
   ngOnInit(): void {
     this.dataSource = LocalStorageUtil.getSubmissions();
@@ -32,6 +34,17 @@ export class AdminComponent implements OnInit {
 
   public onRatingUpdated(updatedRating: number, id: string) {
     console.log(updatedRating, id);
+  }
+
+  public get sessionTime(): string {
+    const session = LocalStorageUtil.getSession();
+
+    if (!session.valid) {
+      this.snackbar.open('Trenutna seja vam je potekla. Prosimo, da se ponovno prijavite', null, { duration: 5000, panelClass: 'has-border-left-accent' });
+      this.router.navigate(['/prijava']);
+    }
+
+    return session.time;
   }
 
 }
