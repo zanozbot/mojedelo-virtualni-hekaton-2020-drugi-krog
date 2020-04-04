@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import LocalStorageUtil from 'src/app/utils/local-storage.util';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-submission',
@@ -12,7 +13,7 @@ export class FormSubmissionComponent implements OnInit {
 
   public submissionFormGroup: FormGroup;
 
-  constructor(private snackbar: MatSnackBar) { }
+  constructor(private snackbar: MatSnackBar, private router: Router) { }
 
   ngOnInit(): void {
     this.submissionFormGroup = new FormGroup({
@@ -36,7 +37,9 @@ export class FormSubmissionComponent implements OnInit {
         description: this.submissionFormGroup.get('description').value,
         id: Date.now().toString(),
         rating: -1
-      })
+      });
+
+      this.router.navigate(['/vloga-uspesno-oddana']);
     } else {
       this.snackbar.open('Izpolniti morate vsa zahtevana polja.', null, { duration: 5000, panelClass: 'has-border-left-orange' });
     }
