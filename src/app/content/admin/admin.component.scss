@@ -35,3 +35,7 @@ tr.submission-row:not(.expanded-row):active {
 table, mat-paginator {
   min-width: 500px;
 }
+
+.no-submissions {
+  padding: 1rem 1rem 0 1rem;
+}
