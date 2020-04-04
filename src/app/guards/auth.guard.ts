@@ -10,6 +10,10 @@ export class AuthGuard implements CanActivate {
   constructor(private router: Router) {
   }
 
+  /**
+   * The route can only be activated if there is a valid key 'jeAdmin'
+   * in the localStorage
+   */
   canActivate(): boolean {
     if (!LocalStorageUtil.getIsAdmin()) {
       this.router.navigate(['/prijava']);

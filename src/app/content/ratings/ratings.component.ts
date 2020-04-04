@@ -24,6 +24,12 @@ export class RatingsComponent implements OnInit {
     this.updateRating(this.rating);
   }
 
+  /**
+   * Updates the UI and is responsible for streaming events
+   * to its parent component
+   *
+   * @param index number of stars - 1
+   */
   public updateRating(index: number) {
     for (let i = 0; i < this.ratings.length; i++) {
       if (i <= index) {

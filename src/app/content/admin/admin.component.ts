@@ -33,14 +33,26 @@ export class AdminComponent implements OnInit {
   constructor(private snackbar: MatSnackBar, private router: Router) { }
 
   ngOnInit(): void {
+    // Initialization of the data source
     this.dataSource = new MatTableDataSource<Submission>(LocalStorageUtil.getSubmissions());
+    // Mounting Paginator to the data source
     this.dataSource.paginator = this.paginator;
   }
 
+  /**
+   * Updates the rated submission with the new value
+   *
+   * @param rating Number of stars - 1
+   * @param id Id of the rated submission
+   */
   public onRatingUpdated(rating: number, id: string) {
     LocalStorageUtil.updateSubmissionRatingById(id, rating);
   }
 
+  /**
+   * A helper getter which returns how much time it is untill
+   * the session expires. It is also responsible for automatical sing out
+   */
   public get sessionTime(): string {
     const session = LocalStorageUtil.getSession();
 

@@ -16,6 +16,7 @@ export class FormSubmissionComponent implements OnInit {
   constructor(private snackbar: MatSnackBar, private router: Router) { }
 
   ngOnInit(): void {
+    // Initialiation of the submission form group
     this.submissionFormGroup = new FormGroup({
       firstName: new FormControl('', Validators.required),
       lastName: new FormControl('', Validators.required),
@@ -24,10 +25,18 @@ export class FormSubmissionComponent implements OnInit {
     });
   }
 
+  /**
+   * A helper getter which is used in the HTML template
+   */
   public get controls(): { [key: string]: AbstractControl } {
     return this.submissionFormGroup.controls;
   }
 
+  /**
+   * Checks if all field are valid, if so the submission gets added to the localStorage and the
+   * user is presented with successful submission page,
+   * otherwise, a snackbar is shown to user
+   */
   public publishSubmission() {
     if (this.submissionFormGroup.valid) {
       LocalStorageUtil.insertSubmission({

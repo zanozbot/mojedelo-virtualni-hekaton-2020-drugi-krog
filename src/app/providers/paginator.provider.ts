@@ -1,5 +1,8 @@
 import { MatPaginatorIntl } from '@angular/material/paginator';
 
+/**
+ * Custom implementation for the Paginator to support Slovenian language
+ */
 export function PaginatorProvider() {
   const paginatorIntl = new MatPaginatorIntl();
 
