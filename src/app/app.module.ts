@@ -9,12 +9,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormSubmissionComponent } from './content/form-submission/form-submission.component';
 import { HomeComponent } from './content/home/home.component';
+import { FormSubmissionSuccessComponent } from './content/form-submission-success/form-submission-success.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormSubmissionComponent,
-    HomeComponent
+    HomeComponent,
+    FormSubmissionSuccessComponent
   ],
   imports: [
     BrowserModule,
