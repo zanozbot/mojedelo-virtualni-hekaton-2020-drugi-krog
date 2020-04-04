@@ -21,6 +21,7 @@ export class RatingsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.updateRating(this.rating);
   }
 
   public updateRating(index: number) {

@@ -1,6 +1,7 @@
+<!-- I only added disableRipple because of a weird autofocus glitch on the next button -->
 <div fxLayout="row">
-  <button *ngFor="let rating of ratings; let index = index" (click)="updateRating(index)" mat-icon-button
-    [id]="'rating' + index">
+  <button disableRipple *ngFor="let rating of ratings; let index = index"
+    (click)="$event.stopPropagation(); updateRating(index)" mat-icon-button>
     <mat-icon color="accent">{{ rating ? 'star' : 'star_outline' }}</mat-icon>
   </button>
 </div>
