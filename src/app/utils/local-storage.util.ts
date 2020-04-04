@@ -8,13 +8,22 @@ export default class LocalStorageUtil {
   /**
    * Inserts newly added submission into localStorage
    *
-   * @param submission A submission with all data filled
+   * @param submission A submission
    */
   public static insertSubmission(submission: Submission) {
     const submissions = this.getSubmissions();
 
     submissions.push(submission);
 
+    localStorage.setItem(`${this.LOCAL_STORAGE_KEY}_vloge`, JSON.stringify(submissions));
+  }
+
+  /**
+   * Updates the localStorage with new data
+   *
+   * @param submissions Array of submissions
+   */
+  public static updateSubmissions(submissions: Submission[]) {
     localStorage.setItem(`${this.LOCAL_STORAGE_KEY}_vloge`, JSON.stringify(submissions));
   }
 
@@ -70,6 +79,22 @@ export default class LocalStorageUtil {
     moment.locale('sl');
 
     return { valid: this.isSessionValid(isAdmin), time: moment.utc().to(moment.utc(isAdmin).add(24, 'hours')) };
+  }
+
+  /**
+   * Updates a submission
+   *
+   * @param id Id of a submission
+   * @param rating Newly picked rating for the submission
+   */
+  public static updateSubmissionRatingById(id: string, rating: number) {
+    const submissions = this.getSubmissions();
+
+    const index = submissions.findIndex(submission => submission.id === id);
+
+    submissions[index].rating = rating;
+
+    this.updateSubmissions(submissions);
   }
 
 }

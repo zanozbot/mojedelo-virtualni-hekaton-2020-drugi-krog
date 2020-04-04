@@ -32,8 +32,8 @@ export class AdminComponent implements OnInit {
     this.dataSource = LocalStorageUtil.getSubmissions();
   }
 
-  public onRatingUpdated(updatedRating: number, id: string) {
-    console.log(updatedRating, id);
+  public onRatingUpdated(rating: number, id: string) {
+    LocalStorageUtil.updateSubmissionRatingById(id, rating);
   }
 
   public get sessionTime(): string {
