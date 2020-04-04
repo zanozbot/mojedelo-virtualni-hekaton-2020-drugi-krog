@@ -105,3 +105,9 @@ app-login {
 section {
   padding: 5rem;
 }
+
+@media only screen and (max-width: 959px) {
+  section {
+    padding: 1.5rem 0;
+  }
+}
