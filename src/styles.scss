@@ -78,6 +78,11 @@ app-login {
   height: 100%;
 }
 
+section {
+  height: calc(100% - 64px);
+  padding: 5rem;
+}
+
 .separator {
   border-bottom: 2px solid mat-color($mojedelo-light-foreground, divider);
   position: relative;
@@ -99,11 +104,12 @@ app-login {
 @media only screen and (max-width: 599px) {
   .container {
     padding: 3rem 1.5rem;
+    padding-top: 0;
   }
-}
 
-section {
-  padding: 5rem;
+  section {
+    height: calc(100% - 56px);
+  }
 }
 
 @media only screen and (max-width: 959px) {
