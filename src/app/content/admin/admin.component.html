@@ -56,10 +56,11 @@
             <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="detail-row"></tr>
           </table>
 
-          <div *ngIf="dataSource.length === 0" class="no-submissions has-text-secondary">Oddana ni bila še nobena vloga.
+          <div *ngIf="dataSource.data.length === 0" class="no-submissions has-text-secondary">Oddana ni bila še nobena
+            vloga.
           </div>
 
-          <mat-paginator [length]="dataSource.length" pageSize="5"></mat-paginator>
+          <mat-paginator [length]="dataSource.data.length" pageSize="5"></mat-paginator>
 
         </div>
 

@@ -5,6 +5,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import LocalStorageUtil from 'src/app/utils/local-storage.util';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-admin',
@@ -20,7 +21,10 @@ import { Router } from '@angular/router';
 })
 export class AdminComponent implements OnInit {
 
-  public dataSource: Submission[] = [];
+  @ViewChild(MatPaginator, { static: true })
+  private paginator: MatPaginator;
+
+  public dataSource: MatTableDataSource<Submission>;
 
   public columnsToDisplay = ['firstName', 'lastName', 'address', 'rating'];
 
@@ -29,7 +33,8 @@ export class AdminComponent implements OnInit {
   constructor(private snackbar: MatSnackBar, private router: Router) { }
 
   ngOnInit(): void {
-    this.dataSource = LocalStorageUtil.getSubmissions();
+    this.dataSource = new MatTableDataSource<Submission>(LocalStorageUtil.getSubmissions());
+    this.dataSource.paginator = this.paginator;
   }
 
   public onRatingUpdated(rating: number, id: string) {
