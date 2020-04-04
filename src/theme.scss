@@ -1,3 +1,4 @@
+// Custom MojeDelo blue color
 $mojedelo-blue: (
   50 : #e4e7e9,
   100 : #bbc3c9,
@@ -31,6 +32,7 @@ $mojedelo-blue: (
   )
 );
 
+// Custom MojeDelo orange color
 $mojedelo-orange: (
   50 : #fdf2e9,
   100 : #faddc7,
@@ -64,7 +66,9 @@ $mojedelo-orange: (
   )
 );
 
-@function mojedelo-mat-light-theme-foreground($color) {
+// Generates colors for foreground elements based on the
+// input color
+@function mojedelo-mat-theme-foreground($color) {
   @return (
     base:              $color,
     divider:           rgba($color, 0.18),

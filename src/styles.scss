@@ -1,46 +1,29 @@
-
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
 @import '~@angular/material/theming';
-// Plus imports for other components in your app.
 
 $typography: mat-typography-config(
   $font-family: 'Poppins, sans-serif'
 );
 
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-// Be sure that you only ever include this mixin once!
 @include mat-core($typography);
 
-// Define the palettes for your theme using the Material Design palettes
 @import "./theme.scss";
 $mojedelo-primary: mat-palette($mojedelo-blue);
 $mojedelo-accent: mat-palette($mojedelo-orange);
-
-// The warn palette is optional (defaults to red).
 $mojedelo-warn: mat-palette($mat-red);
 
 // Create the theme object (a Sass map containing all of the palettes).
-$mojedelo-light-theme: mat-light-theme($mojedelo-primary, $mojedelo-accent, $mojedelo-warn);
-$mojedelo-dark-theme: mat-light-theme($mojedelo-primary, $mojedelo-accent, $mojedelo-warn);
-$mojedelo-light-foreground: mojedelo-mat-light-theme-foreground(mat-color($mojedelo-primary, 500));
-$mojedelo-light-theme-extended: map-merge($mojedelo-light-theme, (foreground: $mojedelo-light-foreground));
+$mojedelo-theme: mat-light-theme($mojedelo-primary, $mojedelo-accent, $mojedelo-warn);
+$mojedelo-foreground: mojedelo-mat-theme-foreground(mat-color($mojedelo-primary, 500));
+$mojedelo-theme-extended: map-merge($mojedelo-theme, (foreground: $mojedelo-foreground));
 
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
-@include angular-material-theme($mojedelo-light-theme-extended);
-
-.dark-theme {
-  @include angular-material-theme($mojedelo-dark-theme);
-}
+// Include theme styles for core and each component used in the app.
+@include angular-material-theme($mojedelo-theme-extended);
 
 html, body { height: 100%; }
 body { margin: 0; font-family: 'Poppins', sans-serif; }
 
 .has-text-base {
-  color: mat-color($mojedelo-light-foreground, text);
+  color: mat-color($mojedelo-foreground, text);
 }
 
 .has-text-dark {
@@ -48,23 +31,11 @@ body { margin: 0; font-family: 'Poppins', sans-serif; }
 }
 
 .has-text-secondary {
-  color: mat-color($mojedelo-light-foreground, secondary-text);
-}
-
-.has-font-weight-light {
-  font-weight: 400 !important;
-}
-
-.has-font-weight-medium {
-  font-weight: 500 !important;
+  color: mat-color($mojedelo-foreground, secondary-text);
 }
 
 .has-font-weight-semibold {
   font-weight: 600 !important;
-}
-
-.has-font-weight-bold {
-  font-weight: 700 !important;
 }
 
 .has-width-100 {
@@ -84,7 +55,7 @@ section {
 }
 
 .separator {
-  border-bottom: 2px solid mat-color($mojedelo-light-foreground, divider);
+  border-bottom: 2px solid mat-color($mojedelo-foreground, divider);
   position: relative;
 
   span {
