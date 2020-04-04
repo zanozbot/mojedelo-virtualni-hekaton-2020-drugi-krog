@@ -1,0 +1,24 @@
+tr.detail-row {
+  height: 0;
+}
+
+tr.submission-row:not(.expanded-row):hover {
+  background: whitesmoke;
+}
+
+tr.submission-row:not(.expanded-row):active {
+  background: #efefef;
+}
+
+.submission-row td {
+  border-bottom-width: 0;
+}
+
+.submission-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+.submission-description {
+  padding: 1rem 0;
+}

@@ -12,6 +12,10 @@ import { HomeComponent } from './content/home/home.component';
 import { FormSubmissionSuccessComponent } from './content/form-submission-success/form-submission-success.component';
 import { LoginComponent } from './content/login/login.component';
 import { MatIconModule } from '@angular/material/icon';
+import { AdminComponent } from './content/admin/admin.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule, MatPaginatorIntl } from '@angular/material/paginator';
+import { PaginatorProvider } from './providers/paginator.provider';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,8 @@ import { MatIconModule } from '@angular/material/icon';
     FormSubmissionComponent,
     HomeComponent,
     FormSubmissionSuccessComponent,
-    LoginComponent
+    LoginComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -29,9 +34,13 @@ import { MatIconModule } from '@angular/material/icon';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
-  providers: [],
+  providers: [
+    { provide: MatPaginatorIntl, useValue: PaginatorProvider() }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

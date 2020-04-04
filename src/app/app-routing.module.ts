@@ -4,6 +4,7 @@ import { FormSubmissionComponent } from './content/form-submission/form-submissi
 import { HomeComponent } from './content/home/home.component';
 import { FormSubmissionSuccessComponent } from './content/form-submission-success/form-submission-success.component';
 import { LoginComponent } from './content/login/login.component';
+import { AdminComponent } from './content/admin/admin.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,11 @@ const routes: Routes = [
         data: { title: 'Prijava za administratorje - MojeDelo' }
       }
     ]
+  },
+  {
+    path: 'admin',
+    component: AdminComponent,
+    data: { title: 'Pregled oddanih vlog - MojeDelo' }
   },
   {
     path: '**',
