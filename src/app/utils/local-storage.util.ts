@@ -5,6 +5,11 @@ export default class LocalStorageUtil {
 
   private static LOCAL_STORAGE_KEY = 'spletna_aplikacija_mojedelo';
 
+  /**
+   * Inserts newly added submission into localStorage
+   *
+   * @param submission A submission with all data filled
+   */
   public static insertSubmission(submission: Submission) {
     const submissions = this.getSubmissions();
 
@@ -13,10 +18,16 @@ export default class LocalStorageUtil {
     localStorage.setItem(`${this.LOCAL_STORAGE_KEY}_vloge`, JSON.stringify(submissions));
   }
 
+  /**
+   * Returs an array of all submissions from localStorage
+   */
   public static getSubmissions(): Submission[] {
     return JSON.parse(localStorage.getItem(`${this.LOCAL_STORAGE_KEY}_vloge`)) || [];
   }
 
+  /**
+   * Checks if an admin is currently logged in and if its session is valid
+   */
   public static getIsAdmin(): boolean {
     const isAdmin = localStorage.getItem(`${this.LOCAL_STORAGE_KEY}_jeAdmin`);
 
@@ -27,18 +38,32 @@ export default class LocalStorageUtil {
     return this.isSessionValid(isAdmin);
   }
 
+  /**
+   * Sets the 'jeAdmin' key to localStorage with current date as its value
+   */
   public static setIsAdmin() {
     localStorage.setItem(`${this.LOCAL_STORAGE_KEY}_jeAdmin`, this.getCurrentISODate());
   }
 
+  /**
+   * Returns the current date in ISO format
+   */
   public static getCurrentISODate(): string {
     return moment.utc().toISOString();
   }
 
+  /**
+   * Checks if current value of a key 'jeAdmin' is still valid
+   *
+   * @param isAdmin Current date from 'jeAdmin' key from localStorage
+   */
   public static isSessionValid(isAdmin: string) {
     return moment.utc(isAdmin).isAfter(moment.utc().subtract(24, 'hours'));
   }
 
+  /**
+   * Returns the current session of the admin
+   */
   public static getSession(): any {
     const isAdmin = localStorage.getItem(`${this.LOCAL_STORAGE_KEY}_jeAdmin`);
 
