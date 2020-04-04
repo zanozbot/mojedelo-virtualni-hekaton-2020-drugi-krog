@@ -1,0 +1,31 @@
+<div class="container" fxFlex="1 1 100%" fxFlex.gt-xs="1 1 75%" fxFlex.gt-lg="1 1 50%" fxLayout="column"
+  fxLayoutGap="2rem">
+
+  <div class="row">
+    <h1 class="has-text-base has-font-weight-semibold">Prijava</h1>
+    <h3 class="mat-subheading-2 has-text-secondary">Vpišite vaše uporabniško ime in geslo.</h3>
+  </div>
+
+  <div class="row">
+    <mat-form-field appearance="fill" color="accent" class="has-width-100">
+      <mat-label>Uporabniško ime*</mat-label>
+      <mat-icon class="has-text-base" matPrefix>account_circle</mat-icon>
+      <input matInput placeholder="Vnesite svoje uporabniško ime">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" color="accent" class="has-width-100">
+      <mat-label>Geslo*</mat-label>
+      <input [type]="hidePassword ? 'password' : 'text'" matInput placeholder="Vnesite svoje geslo">
+      <mat-icon class="has-text-base" matPrefix>lock</mat-icon>
+      <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" attr.aria-label="Skrij geslo"
+        [attr.aria-pressed]="hidePassword">
+        <mat-icon class="has-text-dark">{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <button class="has-width-100" mat-flat-button color="primary">Prijavite se</button>
+  </div>
+
+</div>

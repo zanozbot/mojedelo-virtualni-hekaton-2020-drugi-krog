@@ -43,6 +43,10 @@ body { margin: 0; font-family: 'Poppins', sans-serif; }
   color: mat-color($mojedelo-light-foreground, text);
 }
 
+.has-text-dark {
+  color: mat-color($mojedelo-primary, 800);
+}
+
 .has-text-secondary {
   color: mat-color($mojedelo-light-foreground, secondary-text);
 }
@@ -69,7 +73,8 @@ body { margin: 0; font-family: 'Poppins', sans-serif; }
 
 .has-height-100,
 app-form-submission,
-app-form-submission-success {
+app-form-submission-success,
+app-login {
   height: 100%;
 }
 
