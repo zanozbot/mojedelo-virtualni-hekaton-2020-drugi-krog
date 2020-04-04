@@ -5,6 +5,7 @@ import { HomeComponent } from './content/home/home.component';
 import { FormSubmissionSuccessComponent } from './content/form-submission-success/form-submission-success.component';
 import { LoginComponent } from './content/login/login.component';
 import { AdminComponent } from './content/admin/admin.component';
+import { AuthGuard } from './guards/auth.guard';
 
 
 const routes: Routes = [
@@ -32,6 +33,7 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminComponent,
+    canActivate: [AuthGuard],
     data: { title: 'Pregled oddanih vlog - MojeDelo' }
   },
   {

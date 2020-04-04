@@ -20,4 +20,8 @@ export default class LocalStorageUtil {
     return JSON.parse(localStorage.getItem(`${this.LOCAL_STORAGE_KEY}_vloge`));
   }
 
+  public static getIsAdmin(): boolean {
+    return !!localStorage.getItem(`${this.LOCAL_STORAGE_KEY}_jeAdmin`);
+  }
+
 }
