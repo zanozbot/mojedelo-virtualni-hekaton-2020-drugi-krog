@@ -4,6 +4,7 @@ tr.detail-row {
 
 tr.submission-row:not(.expanded-row):hover {
   background: whitesmoke;
+  cursor: pointer;
 }
 
 tr.submission-row:not(.expanded-row):active {
@@ -25,4 +26,12 @@ tr.submission-row:not(.expanded-row):active {
 
 .container {
   margin: 0 auto;
+}
+
+.table-container {
+  overflow: auto;
+}
+
+table, mat-paginator {
+  min-width: 500px;
 }

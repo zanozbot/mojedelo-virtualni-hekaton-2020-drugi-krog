@@ -16,6 +16,8 @@ import { AdminComponent } from './content/admin/admin.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule, MatPaginatorIntl } from '@angular/material/paginator';
 import { PaginatorProvider } from './providers/paginator.provider';
+import { RatingsComponent } from './content/ratings/ratings.component';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { PaginatorProvider } from './providers/paginator.provider';
     HomeComponent,
     FormSubmissionSuccessComponent,
     LoginComponent,
-    AdminComponent
+    AdminComponent,
+    RatingsComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ import { PaginatorProvider } from './providers/paginator.provider';
     MatInputModule,
     MatIconModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [
     { provide: MatPaginatorIntl, useValue: PaginatorProvider() }
