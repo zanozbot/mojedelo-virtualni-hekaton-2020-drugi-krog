@@ -115,3 +115,19 @@ section {
 .has-border-left-accent {
   border-left: 4px solid mat-color($mojedelo-accent, 500);
 }
+
+.table-container, .content {
+  scrollbar-width: thin;
+
+    &::-webkit-scrollbar {
+    width: 0.4rem;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: #f0f0f0;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: #cdcdcd;
+  }
+}
