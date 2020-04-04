@@ -1,7 +1,8 @@
 .has-background-image {
-  background-color: gray;
-  border-bottom-right-radius: 2rem;
-  border-top-right-radius: 2rem;
+  background-image: url("/assets/images/mojedelo-spltena-aplikacija-za-oddajo-in-pregled-vlog-ozdaje.jpg");
+  background-position: right;
+  background-size: cover;
+  filter: grayscale(20%);
 }
 
 .content {
