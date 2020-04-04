@@ -1,4 +1,5 @@
 import { Submission } from '../models/submission.model';
+import * as moment from 'moment';
 
 export default class LocalStorageUtil {
 
@@ -21,7 +22,21 @@ export default class LocalStorageUtil {
   }
 
   public static getIsAdmin(): boolean {
-    return !!localStorage.getItem(`${this.LOCAL_STORAGE_KEY}_jeAdmin`);
+    const isAdmin = localStorage.getItem(`${this.LOCAL_STORAGE_KEY}_jeAdmin`);
+
+    if (isAdmin == null) {
+      return false;
+    }
+
+    return moment.utc(isAdmin).isAfter(moment.utc().subtract(24, 'hours'));
+  }
+
+  public static setIsAdmin() {
+    localStorage.setItem(`${this.LOCAL_STORAGE_KEY}_jeAdmin`, this.getCurrentISODate());
+  }
+
+  public static getCurrentISODate(): string {
+    return moment.utc().toISOString();
   }
 
 }

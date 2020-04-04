@@ -35,13 +35,13 @@ export class FormSubmissionComponent implements OnInit {
         lastName: this.submissionFormGroup.get('lastName').value,
         address: this.submissionFormGroup.get('address').value,
         description: this.submissionFormGroup.get('description').value,
-        id: Date.now().toString(),
+        id: LocalStorageUtil.getCurrentISODate(),
         rating: -1
       });
 
       this.router.navigate(['/vloga-uspesno-oddana']);
     } else {
-      this.snackbar.open('Izpolniti morate vsa zahtevana polja.', null, { duration: 5000, panelClass: 'has-border-left-orange' });
+      this.snackbar.open('Izpolniti morate vsa zahtevana polja.', null, { duration: 5000, panelClass: 'has-border-left-accent' });
     }
   }
 
