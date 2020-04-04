@@ -28,7 +28,10 @@
 
             <ng-container matColumnDef="rating">
               <th mat-header-cell mat-sort-header *matHeaderCellDef> Ocena </th>
-              <td mat-cell *matCellDef="let submission"> {{ submission.rating }} </td>
+              <td mat-cell *matCellDef="let submission">
+                <app-ratings [rating]="submission.rating" (ratingUpdated)="onRatingUpdated($event, submission.id)">
+                </app-ratings>
+              </td>
             </ng-container>
 
             <ng-container matColumnDef="expandedDetail">

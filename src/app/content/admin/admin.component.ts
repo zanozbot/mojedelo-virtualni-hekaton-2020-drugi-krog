@@ -19,6 +19,7 @@ export class AdminComponent implements OnInit {
 
   public dataSource: Submission[] = [
     {
+      id: 'kaldjlsj12',
       firstName: 'Janez',
       lastName: 'Novak',
       address: 'Slovenska cesta 32, 1000 Ljubljana',
@@ -36,6 +37,10 @@ export class AdminComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  public onRatingUpdated(updatedRating: number, id: string) {
+    console.log(updatedRating, id);
   }
 
 }

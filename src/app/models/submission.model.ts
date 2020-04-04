@@ -1,4 +1,5 @@
 export interface Submission {
+  id: string;
   firstName: string;
   lastName: string;
   address: string;

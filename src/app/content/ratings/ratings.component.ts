@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-ratings',
@@ -7,9 +7,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RatingsComponent implements OnInit {
 
+  @Input()
+  public rating: number;
+
+  @Input()
+  public id: string;
+
+  @Output()
+  public ratingUpdated: EventEmitter<number> = new EventEmitter<number>();
+
+  public ratings: boolean[] = [false, false, false, false, false];
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  public updateRating(index: number) {
+    for (let i = 0; i < this.ratings.length; i++) {
+      if (i <= index) {
+        this.ratings[i] = true;
+      } else {
+        this.ratings[i] = false;
+      }
+    }
+
+    this.ratingUpdated.next(index);
   }
 
 }

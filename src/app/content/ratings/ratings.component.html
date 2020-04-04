@@ -1,0 +1,6 @@
+<div fxLayout="row">
+  <button *ngFor="let rating of ratings; let index = index" (click)="updateRating(index)" mat-icon-button
+    [id]="'rating' + index">
+    <mat-icon color="accent">{{ rating ? 'star' : 'star_outline' }}</mat-icon>
+  </button>
+</div>
