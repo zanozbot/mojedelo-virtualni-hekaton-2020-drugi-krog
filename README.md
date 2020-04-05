@@ -1,5 +1,7 @@
 # Spletna aplikacija za oddajo in pregled vlog za delo - MojeDelo
 
+> Aplikacija, ki za svoje delovanje uporablja lokalni pomnilnik
+
 ## Navodila
 
 Ko odpremo spletno aplikacijo, se nam prikaže stran, na kateri se nahaja vloga za delo. Prototip strani lahko vidimo na sliki 1. Vlogo oddamo s klikom na gumb »oddaj«. Ker aplikacija deluje samo na odjemalcu, se vloga ne odda na strežnik, ampak se shrani v lokalni pomnilnik. Pred oddajo je potrebno preveriti, da nobeno izmed polj ni ostalo neizpolnjeno. V kolikor je katero izmed polj ostalo prazno, o tem obvestimo uporabnika, ter vloge ne shranimo v lokalni pomnilnik.
@@ -11,11 +13,11 @@ Kot lahko vidimo na prototipu strani za oddajo vloge, se pod obrazcem nahaja tud
 Ko smo preusmerjeni na pot /admin vidimo komponento »pregled vlog«, katere prototip je prikazan na sliki 4. Administratorju se prikažejo vse vloge, ki so shranjene v lokalnem pomnilniku. Administrator lahko te vloge oceni z oceno od 1 do 5, s pomočjo zvezdic, kot je vidno na prototipu. Oceno je potrebno shraniti tudi v lokalni pomnilnik, da je ob naslednjem obisku strani še vedno vidna. Če je bilo oddanih več kot pet vlog, na strani dodamo tudi paginacijo, da se nam ne prikažejo vse vloge za delo naenkrat. V kolikor še ni bila oddana nobena vloga, namesto vlog administratorju prikažemo sporočilo, da še ni bila oddana nobena vloga.
 
 Slika 1                        |  Slika 2
-:-----------------------------:|:-------------------------:
+:-----------------------------:|:-----------------------------:
 ![Slika 1](docs/images/1.jpg)  |  ![Slika 2](docs/images/2.jpg)
 
 Slika 3                        |  Slika 4
-:-----------------------------:|:-------------------------:
+:-----------------------------:|:-----------------------------:
 ![Slika 3](docs/images/3.jpg)  |  ![Slika 4](docs/images/4.jpg)
 
 ## Rešitev
@@ -26,11 +28,11 @@ Da bi rešitev čimbolj izstopala, sem v Figmi ponovno načrtal prototipe, ki kl
 Zaslon sem razdelil na polovici, saj se tako bolj poenoti s trenutno implementacijo spletne strani MojeDelo. Spodaj so prikazane slike sprememb.
 
 Oddaja vloge                                   |  Vloga uspešno oddana
-:---------------------------------------------:|:-------------------------:
+:---------------------------------------------:|:-----------------------------------------------------:
 ![Oddaja vloge](docs/images/oddaja-vloge.png)  |  ![Vloga uspešno oddana](docs/images/vloga-oddana.png)
 
 Prijava                              |  Pregled prijav
-:-----------------------------------:|:-------------------------:
+:-----------------------------------:|:-------------------------------------------------:
 ![Prijava](docs/images/prijava.png)  |  ![Pregled prijav](docs/images/pregled-prijav.png)
 
 Spremembe, ki sem jih naredil:
@@ -89,3 +91,7 @@ Za testni strežnik nato poženete še ukaz `ng serve` in v brskalniku obiščet
 ## Postavitev
 
 Za produkcijsko postavitev aplikacije poženete ukaz `ng build --prod`. Po postavitve se bodo vsi artifakti aplikacije najahaji v mapi `dist/`.
+
+## Avtorske pravice
+
+Uporabljene slike in ikone so last podjetja [MojeDelo.com](https://www.mojedelo.com/).
