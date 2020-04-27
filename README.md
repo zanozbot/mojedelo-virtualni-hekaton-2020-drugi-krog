@@ -1,97 +1,100 @@
-# Spletna aplikacija za oddajo in pregled vlog za delo - MojeDelo
+# MojeDelo Virtual Hackathon Submission
 
-> Aplikacija, ki za svoje delovanje uporablja lokalni pomnilnik
+![Netlify Status](https://api.netlify.com/api/v1/badges/bd9a97ad-6124-4b28-bc26-fdb1b072e396/deploy-status)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## Navodila
+Progressive Web Application for submission and review of job applications.
+The application is written in an Angular framework and uses local storage for all of its operations.
 
-Ko odpremo spletno aplikacijo, se nam prikaže stran, na kateri se nahaja vloga za delo. Prototip strani lahko vidimo na sliki 1. Vlogo oddamo s klikom na gumb »oddaj«. Ker aplikacija deluje samo na odjemalcu, se vloga ne odda na strežnik, ampak se shrani v lokalni pomnilnik. Pred oddajo je potrebno preveriti, da nobeno izmed polj ni ostalo neizpolnjeno. V kolikor je katero izmed polj ostalo prazno, o tem obvestimo uporabnika, ter vloge ne shranimo v lokalni pomnilnik.
+## Instructions
 
-Če je vloga uspešno shranjena v pomnilnik, to sporočimo uporabniku tako, da mu prikažemo komponento za uspešno opravljeno oddajo vloge. Prototip komponente je viden na sliki 2. Ob kliku na gumb »nova oddaja« uporabniku ponovno prikažemo prvotno komponento vidno na sliki 1.
+When we open the application we are presented with the job form submission screen. The prototype of the page can be seen in figure 1. The form gets submitted after the user clicks on the "Submit" button. Because the application's operations are only executed on the client-side its data gets stored in the local storage. Before submitting the fields need to be validated. If any fields are left blank, you must notify the user and cancel the saving operation.
 
-Kot lahko vidimo na prototipu strani za oddajo vloge, se pod obrazcem nahaja tudi povezava z besedilom: »prijavi se kot administrator«. V kolikor uporabnik klikne to povezavo preverimo, če ima v lokalnem pomnilniku nastavljeno spremenljivko jeAdmin na resnično. Če je spremenljivka ustrezno nastavljena ga preusmerimo na pot /admin, ki vsebuje pregled vlog; če spremenljivke ni v pomnilniku, ga preusmerimo na pot /login, kjer se nahaja obrazec za vpis. Prototip vpisnega obrazca lahko vidimo na sliki 3. Naloga poteka samo na odjemalcu, kar pomeni, da nimamo strežnika za avtentikacijo uporabnikov, ter se ob prijavi preveri samo, da vpisna polja niso prazna. Če je katero izmed polj ostalo prazno, o tem obvestimo uporabnika, prijava pa je neuspešna. V kolikor so polja zapolnjena, v lokalnem pomnilniku nastavimo spremenljivko jeAdmin na resnično, uporabnika pa preusmerimo na pot /admin. Administratorja je potrebno 24 ur po prijavi avtomatsko odjaviti, tako da se mora za ponovno uporabno strani znova prijaviti.
+If the job application is successfully saved, we show the user another component that tells the user just that. The prototype of that component is visible in figure 2. Clicking on the "New submission" button takes the user back to the first screen.
 
-Ko smo preusmerjeni na pot /admin vidimo komponento »pregled vlog«, katere prototip je prikazan na sliki 4. Administratorju se prikažejo vse vloge, ki so shranjene v lokalnem pomnilniku. Administrator lahko te vloge oceni z oceno od 1 do 5, s pomočjo zvezdic, kot je vidno na prototipu. Oceno je potrebno shraniti tudi v lokalni pomnilnik, da je ob naslednjem obisku strani še vedno vidna. Če je bilo oddanih več kot pet vlog, na strani dodamo tudi paginacijo, da se nam ne prikažejo vse vloge za delo naenkrat. V kolikor še ni bila oddana nobena vloga, namesto vlog administratorju prikažemo sporočilo, da še ni bila oddana nobena vloga.
+There is also a link below the form "Sign in as administrator". If clicked you must check if the variable "isAdmin" in the local storage is set to `true`. If so, you redirect the user to the admin page which contains the list of all submissions. Otherwise, you must redirect the user to the login page. The prototype for the login page can be seen in figure 3. Since there is no authentication server involved, you must only check if all of the fields are set. If the fields are filled, set the variable "isAdmin" to true and redirect the user to the admin page. The admin needs to be automatically logged out 24 hours after logging in.
 
-Slika 1                        |  Slika 2
-:-----------------------------:|:-----------------------------:
-![Slika 1](docs/images/1.jpg)  |  ![Slika 2](docs/images/2.jpg)
+When the user is redirected to the admin page, he sees all of the submitted job applications. The prototype can be seen in figure 4. The administrator can rate these submissions from 1 to 5. You must also store the ratings in the local storage, so they can be seen on the next visit. Pagination must appear if there are more then five submissions in the table. If no application has been submitted yet a proper message must be presented to the administrator.
 
-Slika 3                        |  Slika 4
-:-----------------------------:|:-----------------------------:
-![Slika 3](docs/images/3.jpg)  |  ![Slika 4](docs/images/4.jpg)
+Figure 1                        |  Figure 2
+:------------------------------:|:------------------------------:
+![Figure 1](docs/images/1.jpg)  |  ![Figure 2](docs/images/2.jpg)
 
-## Rešitev
+Figure 3                        |  Figure 4
+:------------------------------:|:------------------------------:
+![Figure 3](docs/images/3.jpg)  |  ![Figure 4](docs/images/4.jpg)
 
-### Prototip
+## Solution
 
-Da bi rešitev čimbolj izstopala, sem v Figmi ponovno načrtal prototipe, ki kljub svoji abstraksnosti še vedno izražajo stil, ki sem ga hotel.
-Zaslon sem razdelil na polovici, saj se tako bolj poenoti s trenutno implementacijo spletne strani MojeDelo. Spodaj so prikazane slike sprememb.
+### Prototype
 
-Oddaja vloge                                   |  Vloga uspešno oddana
-:---------------------------------------------:|:-----------------------------------------------------:
-![Oddaja vloge](docs/images/oddaja-vloge.png)  |  ![Vloga uspešno oddana](docs/images/vloga-oddana.png)
+To make the solution to stand out as much as possible, I re-designed the prototypes in Figma, which, despite their abstractness, still express the style I was going for. I've split the screen in half, to make it more in line with the current implementation of the MojeDelo website. Below are the figures for the changes.
 
-Prijava                              |  Pregled prijav
-:-----------------------------------:|:-------------------------------------------------:
-![Prijava](docs/images/prijava.png)  |  ![Pregled prijav](docs/images/pregled-prijav.png)
+Form submission                                   |  Form successfuly submitted
+:------------------------------------------------:|:-----------------------------------------------------------:
+![Form submission](docs/images/oddaja-vloge.png)  |  ![Form successfuly submitted](docs/images/vloga-oddana.png)
 
-Spremembe, ki sem jih naredil:
-- Povezavi "Prijavite se kot administrator" sem za namene te aplikacije povečal pomembnost, tako, da sem jo spremenil v sekundarni gumb (t.j. gumb z obrobo).
-- Na pregled vlog sem dodal indikator seje (koliko časa trenutna seja še velja za prijavljenega administratorja, preden se bo moral ponovno prijaviti).
-- Če podrobno pogledamo tabelo, ta ne vsebuje stolpca "Opis", saj je ta skrit znotraj podaljšane vrstice. Povod za to spremembo je, da so opisi lahko zelo dolgi in jih ne želimo vrivati v tabelo, kar bi pokvarilo njen izgled.
-- Kasneje dodana še orodna vrstica, ki poenostavi navigiranje med stranmi.
+Login                              |  Form overview
+:---------------------------------:|:-------------------------------------------------:
+![Login](docs/images/prijava.png)  |  ![Form overview](docs/images/pregled-prijav.png)
 
-### Implementacija
+These are the changes I end up doing
+- I increased the importance of the "Log in as Administrator" link fo the purposes of this application by turning it into a secondary button (i.e. a border button).
+- I added a session indicator to the admin page. It tells the logged-in administrator how long the current session is still valid before having to log in again.
+- I removed the table column "Description" to make the table feel less cluttered and move it inside an expandable row.
+- I added the toolbar afterward to simplify the page navigation.
 
-Aplikacija je razvita v ogrodju Angular in sledi principom odzivnosti spletnih strani. Implementirana je tako, da kar se da dobro izrablja vse lasnosti ogrodja Angular:
-- Komponentizacija (oddaja vlog, uspešna oddaja vlog, prijava, ocene, pregled vlog).
-- Vmesna programska oprema, ki služi kot stražar dostopa do povezave `/admin`.
-- Ponudnik, ki spremeni delovanje (v tem primeru izpisa) besedila paginacije.
-- Model (vloga), ki doprinese z lažjemu razvoju in organiziranosti kode.
-- Stili s temo narejeno po meri portala MojeDelo.
-- Orodja za delom s časom in lokalnim pomnilnikom.
-- Dinamično spreminjanje naslovov strani.
-- Delovanje brez povezave.
-- Možnost shranitve aplikacije na namizje.
+### Implementation
 
-Poleg zgonjih funkcionalnosti sem dodal še:
-- Vse potrebne značke in sličice za optimizacijo iskalnikov (angl. Search Engine Optimization).
-- Sliko Open Graph, ki na splošno poskbri, da vsebina še bolj izstopi.
-- Dokumentacijo kode.
-- Obarvanje orodnje vrstice brskalnika v primarno barvo.
+The application is developed with the Angular framework and follows the principles of website responsiveness. I tried to show as many properties as possible in the implementation which are
+- Componentization (application submission form, successful submission, login, admin, and favorites components).
+- Middleware that serves as a guard on the `/admin` path.
+- A provider that changes the output text of table pagination.
+- A model that helps with code organization and faster development.
+- Custom styles tailor-made for MojeDelo.
+- Utilities for working with time and local storage.
+- Dynamic changing of title on pages.
+- Offline accessibility.
+- Ability to save the application to one's home screen.
 
-Končni izgled je prikazan na spodnjih slikah.
+In addition to the above functionalities, I've also added
+- All the necessary search engine optimization tags and icons.
+- An Open graph image for maximum exposure.
+- Code documentation.
+- Theme color, which is responsible for coloring the phone's toolbar to the primary application color.
 
-Končni izgled - oddaja vloge                                                |  Končni izgled - vloga uspešno oddana
-:--------------------------------------------------------------------------:|:---------------------------------------------------------------------------------:
-![Kočni izgled - oddaja vloge](docs/images/koncni-izgled-oddaja-vloge.png)  |  ![Končni izgled Vloga uspešno oddana](docs/images/koncni-izgled-vloga-oddana.png)
+The final solution can be seen in the figures below.
 
-Končni izgled - prijava                                            |  Končni izgled - Pregled prijav
-:-----------------------------------------------------------------:|:-------------------------------------------------------------------------------:
-![Končni izgled - prijava](docs/images/koncni-izgled-prijava.png)  |  ![Končni izgled - pregled prijav](docs/images/koncni-izgled-pregled-prijav.png)
+Form submission                                                 |  Form successfuly submitted
+:--------------------------------------------------------------:|:--------------------------------------------------------------------------------:
+![Form submission](docs/images/koncni-izgled-oddaja-vloge.png)  |  ![Form successfuly submitted](docs/images/koncni-izgled-vloga-oddana.png)
 
-## Testiranje
+Login                                              |  Form overview
+:-------------------------------------------------:|:---------------------------------------------------------------:
+![Login](docs/images/koncni-izgled-prijava.png)    |  ![Form overview](docs/images/koncni-izgled-pregled-prijav.png)
 
-Za testiranje aplikacije lahko obiščete stran https://mojedelo.netlify.com/ ali zaženete aplikacijo lokalno.
+## Testing
 
-### Lokalno testiranje
+To test the application, you can visit https://mojedelo.netlify.com/ or run the application locally.
 
-Predpogoj lokalnega zagona aplikacije je, da imate naloženo ogrodje [Node.js](https://nodejs.org/en/) ter [Angular CLI](https://cli.angular.io/).
+### Local testing
 
-Znotraj mape, kjer se nahaja dokument `README.md`, v vmesniku ukazne vrstice zaženete ukaz
+The prerequisite for running the application locally is that you have [Node.js](https://nodejs.org/en/) and [Angular CLI](https://cli.angular.io/) installed. 
+
+Within the folder where the document `README.md` is located, run the following command in your console.
 
 ```
 npm install
 ```
 
-ter počakate da se vam naložijo vse odvisnosti projekta.
+Wait for all the project dependencies to install.
 
-Za testni strežnik nato poženete še ukaz `ng serve` in v brskalniku obiščete `http://localhost:4200/`.
+After that, run `ng serve` and navigate to `http://localhost:4200/` in your browser.
 
-## Postavitev
+## Production
 
-Za produkcijsko postavitev aplikacije poženete ukaz `ng build --prod`. Po postavitve se bodo vsi artifakti aplikacije najahaji v mapi `dist/`.
+Run `ng build --prod` for a production build. Once built, all of the application artifacts will be located in the `dist/` folder.
 
-## Avtorske pravice
+## Copyright
 
-Uporabljene slike in ikone so last podjetja [MojeDelo.com](https://www.mojedelo.com/).
+The images and icons used in the project are the property of [MojeDelo.com](https://www.mojedelo.com/).
