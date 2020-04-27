@@ -6,6 +6,8 @@
 Progressive Web Application for submission and review of job applications.
 The application is written in an Angular framework and uses local storage for all of its operations.
 
+![MojeDelo Image](https://mojedelo.netlify.app/assets/images/og-image.png)
+
 ## Instructions
 
 When we open the application we are presented with the job form submission screen. The prototype of the page can be seen in figure 1. The form gets submitted after the user clicks on the "Submit" button. Because the application's operations are only executed on the client-side its data gets stored in the local storage. Before submitting the fields need to be validated. If any fields are left blank, you must notify the user and cancel the saving operation.
